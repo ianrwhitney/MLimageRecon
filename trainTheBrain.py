@@ -31,7 +31,7 @@ def build_model():
         input_shape = (IMG_WIDTH, IMG_HEIGHT, 3)
 
     model = Sequential()
-    model.add(Conv2D(32, (3, 3), padding='same', input_shape=input_shape))
+    model.add(Conv2D(32, (3, 3), input_shape=input_shape))
     model.add(Activation('relu'))
     model.add(MaxPooling2D(pool_size=(2, 2)))
 
@@ -59,7 +59,7 @@ def build_model():
     model.compile(loss='binary_crossentropy',
                   optimizer='rmsprop',
                   metrics=['accuracy'])
-
+    print(model.summary())
     return model
 
 
